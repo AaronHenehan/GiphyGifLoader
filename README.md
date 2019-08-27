@@ -1,2 +1,2 @@
 # GiphyGifLoader
-Gif loader using the Giphy Api
+Gif Loader using the Giphy Api and Kotlin

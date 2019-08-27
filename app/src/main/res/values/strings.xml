@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Giphy Gif Loader</string>
+    <string name="search_hint">Search Giphy for...</string>
+    <string name="search">Search</string>
+    <string name="error_loading_gif">Error loading gif</string>
+    <string name="network_error">Network error: %s</string>
+</resources>

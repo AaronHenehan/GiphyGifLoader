@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/main_navigation"
+            app:startDestination="@id/search_destination">
+
+    <!-- Search Fragment -->
+    <fragment
+            android:id="@+id/search_destination"
+            android:name="com.aaronhenehan.giphygifloader.ui.search.SearchFragment"
+            android:label="fragment_search"
+            tools:layout="@layout/fragment_search">
+        <action
+                android:id="@+id/action_search_to_detail"
+                app:destination="@id/detail_destination"
+                app:launchSingleTop="true"
+                app:enterAnim="@anim/slide_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- Detail Fragment -->
+    <fragment
+            android:id="@+id/detail_destination"
+            android:name="com.aaronhenehan.giphygifloader.ui.detail.DetailFragment"
+            android:label="fragment_top_reviews"
+            tools:layout="@layout/fragment_detail">
+
+        <action
+                android:id="@+id/action_detail_to_search"
+                app:launchSingleTop="true"
+                app:popUpTo="@+id/search_destination" />
+        <argument
+                android:name="gifUrl"
+                app:argType="string"
+                app:nullable="true"
+                android:defaultValue="@null"/>
+
+    </fragment>
+
+</navigation>
