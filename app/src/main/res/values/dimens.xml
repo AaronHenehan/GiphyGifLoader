@@ -2,4 +2,5 @@
 <resources>
     <dimen name="margin_amount">8dp</dimen>
     <dimen name="gif_item_width_height">200dp</dimen>
+    <dimen name="regular_text_size">16sp</dimen>
 </resources>

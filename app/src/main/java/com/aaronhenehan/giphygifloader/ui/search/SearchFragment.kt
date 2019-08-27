@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aaronhenehan.giphygifloader.R
 import com.aaronhenehan.giphygifloader.databinding.FragmentSearchBinding
+import com.aaronhenehan.giphygifloader.util.NetworkManager
 
 class SearchFragment : Fragment() {
     private val TAG = "SearchFragment"
@@ -42,6 +43,9 @@ class SearchFragment : Fragment() {
 
         searchViewModel.gifResponse.observe(this, Observer {
             Log.d(TAG, "Offset: " + it.pagination.offset)
+            if (it.gifs.isEmpty()) {
+                Toast.makeText(context, getString(R.string.nothing_found), LENGTH_LONG).show()
+            }
             if (it.pagination.offset == 0) {
                 gifAdapter.setGifs(it.gifs)
             } else {
@@ -59,6 +63,8 @@ class SearchFragment : Fragment() {
             currentSearchTerm = searchEntry.text.toString()
             if (searchEntry.text.toString().isNotEmpty()) {
                 searchViewModel.onSearchClicked(currentSearchTerm)
+            } else {
+                Toast.makeText(context, getString(R.string.invalid_search), LENGTH_LONG).show()
             }
         }
 
@@ -74,6 +80,10 @@ class SearchFragment : Fragment() {
                 }
             }
         })
+
+        if (!activity?.let(NetworkManager.Companion::isNetworkConnected)!!) {
+            binding.searchNoInternet.visibility = View.VISIBLE
+        }
 
         return binding.root
     }

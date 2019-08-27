@@ -4,4 +4,7 @@
     <string name="search">Search</string>
     <string name="error_loading_gif">Error loading gif</string>
     <string name="network_error">Network error: %s</string>
+    <string name="invalid_search">Search cannot be empty</string>
+    <string name="nothing_found">Nothing found</string>
+    <string name="no_internet">No internet found, check your connection and try again.</string>
 </resources>
